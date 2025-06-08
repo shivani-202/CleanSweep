@@ -2,7 +2,7 @@
 
 **CleanSweep** is a Python-based tool designed to automate Exploratory Data Analysis (EDA) and data cleaning tasks, including handling missing values, detecting and removing outliers, and converting data types intelligently. It leverages popular libraries like Pandas, SweetViz, and Pandas-Profiling to simplify and speed up the data preprocessing phase in any data science project.
 
----
+
 
 ## Features
 
@@ -13,7 +13,6 @@
 - **Robust Logging:** Tracks the entire cleaning process and flags columns failing dtype conversion  
 - **Command-line Interface:** Easily run and customize cleaning steps via CLI options  
 
----
 
 ## Installation
 
