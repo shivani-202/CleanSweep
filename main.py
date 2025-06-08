@@ -1,5 +1,7 @@
 import logging
 from cleansweep.io import load_dataset
+from cleansweep.eda import generate_eda_report
+from cleansweep.eda_profile import generate_profile_report
 import pandas as pd
 import json
 
@@ -39,5 +41,7 @@ if __name__ == "__main__":
         df = load_dataset(file_path)
         basic_summary(df)
         save_summary(df)
+        # generate_eda_report(df)
+        generate_profile_report(df)
     except Exception as e:
         print(f"Error: {e}")
