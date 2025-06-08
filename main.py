@@ -1,28 +1,43 @@
+import logging
+from cleansweep.io import load_dataset
 import pandas as pd
-import os
+import json
 
-def load_dataset(path):
-    if not os.path.exists(path):
-        raise FileNotFoundError(f"File not found")
-    try: 
-        df = pd.read_csv(path)
-        print("Dataset loaded")
-        return df
-    except Exception as e:
-        print(f"Error loading the dataset: {e}")
-        return None
+# Setup logging
+logging.basicConfig(
+    filename="cleanbot.log",
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(message)s"
+)
 
-
-def summary(df):
-    print("\n Summary:")
+def basic_summary(df):
+    print("\n SUMMARY:")
     print(f"Shape: {df.shape}")
-    print("\nColumns:\n", df.columns.tolist())
-    print("\nMissing values:\n", df.isnull().sum())
-    print("\nData types:\n", df.dtypes)
+    print("Columns:", df.columns.tolist())
+    print("Missing values:\n", df.isnull().sum())
+    print("Data types:\n", df.dtypes)
 
+def save_summary(df, output_path="summary.json"):
+    summary = {
+        "shape": df.shape,
+        "columns": df.columns.tolist(),
+        "missing_values": df.isnull().sum().to_dict(),
+        "data_types": df.dtypes.astype(str).to_dict()
+    }
+
+    try:
+        with open(output_path, "w") as f:
+            json.dump(summary, f, indent=4)
+        logging.info(f" Summary saved to {output_path}")
+    except Exception as e:
+        logging.exception(" Failed to save summary.")
+        print(f"Error saving summary: {e}")
 
 if __name__ == "__main__":
     file_path = input("Enter path to your CSV dataset: ")
-    df = load_dataset(file_path)
-    if df is not None:
-        summary(df)
+    try:
+        df = load_dataset(file_path)
+        basic_summary(df)
+        save_summary(df)
+    except Exception as e:
+        print(f"Error: {e}")
