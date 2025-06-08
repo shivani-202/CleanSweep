@@ -34,7 +34,8 @@ Run the cleansweep bot for any dataset
 python main.py --input path/to/your/dataset.csv --output cleaned_data.csv --handle-missing --handle-outliers --handle-dtypes
 ```
 
-## Project Structure
+Project Structure
+
 cleansweep/
 ├── io.py                # Data loading utilities
 ├── eda.py               # EDA report generation (SweetViz)
@@ -46,9 +47,7 @@ cleansweep/
 └── logs/                # Logs of cleaning process
 
 
-icense
-This project is licensed under the MIT License - see the LICENSE file for details.
 
 Contact
-Created by Shivani - feel free to reach out via [shivanis1273@gmail.com ]
+Created by Shivani - feel free to reach out via (shivanis1273@gmail.com )
 
