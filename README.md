@@ -16,7 +16,8 @@
 
 ## Installation
 
-Make sure you have Python 3.7+ installed. Then install the dependencies:
+ Version : Python 3.7
+ Install the dependencies:
 
 ```bash
 pip install -r requirements.txt
