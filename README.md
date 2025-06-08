@@ -34,18 +34,6 @@ Run the cleansweep bot for any dataset
 python main.py --input path/to/your/dataset.csv --output cleaned_data.csv --handle-missing --handle-outliers --handle-dtypes
 ```
 
-Project Structure
-
-cleansweep/
-├── io.py                # Data loading utilities
-├── eda.py               # EDA report generation (SweetViz)
-├── eda_profile.py       # EDA report generation (Pandas-Profiling)
-├── missing_handler.py   # Missing value summary and imputation
-├── outlier_handler.py   # Outlier detection and removal
-├── dtype_handler.py     # Data type inference and conversion
-├── main.py              # Main CLI entry point
-└── logs/                # Logs of cleaning process
-
 
 
 Contact
